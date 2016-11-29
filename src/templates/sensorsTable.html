@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+            <th>#</th>
+            <th>Longitude</th>
+            <th>Latitude</th>
+            <th>Type</th>
+            <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for sensor in sensors %}
+            <tr>
+                <th scope="row">sensor.sensor_id</th>
+                <td>sensor.longitude</td>
+                <td>sensor.latitude</td>
+                <td>sensor.type</td>
+                <td>sensor.status</td>
+            </tr>
+        {% endfor %}
+        <tr>
+            <th scope="row">1</th>
+            <td>116.77</td>
+            <td>65.3</td>
+            <td>1</td>
+            <td>On</td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>122.77</td>
+            <td>66.3</td>
+            <td>1</td>
+            <td>On</td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td>114.77</td>
+            <td>68.3</td>
+            <td>2</td>
+            <td>On</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+{% endblock %}
