@@ -1,6 +1,7 @@
 import datetime
 import uuid
-from src.common.Database import Database
+
+from src.Database import Database
 
 
 class Post(object):

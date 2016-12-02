@@ -6,39 +6,7 @@ from flask import session
 from flask import url_for
 
 from models.user import User
-from src.common.Database import Database
-
-# user registration
-# user = User(first_name='Leo', last_name='Lee',
-#             account='Spartan', pwd='223', role=1)
-#
-# user.register()
-
-# user account/pwd check
-# result = User.check_pwd('Spartan122', '567')
-# if result:
-#     print "It is authorized"
-# else:
-#     print "Wrong pwd"
-
-# save a sensor
-# sensor = Sensor(longitude = 123.12,
-#                 latitude = 222.33,
-#                 type = 1,
-#                 status=True)
-# sensor.save_to_mongo()
-
-# sensors = Sensor.getAll()
-# for sensor in sensors:
-#     print sensor
-# update
-# Sensor.editOne('e6b7b7e0dc5143bc925a6e3f5ce65135', {'longitude':111.22})
-
-# delete
-# Sensor.deleteOne('e6b7b7e0dc5143bc925a6e3f5ce65135')
-
-# another_sensor = Sensor.getOne('e6b7b7e0dc5143bc925a6e3f5ce65135')
-# print another_sensor
+from src.Database import Database
 from src.models.sensor import Sensor
 
 app = Flask(__name__)

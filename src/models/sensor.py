@@ -1,7 +1,7 @@
 import uuid
 from datetime import datetime
 
-from src.common.Database import Database
+from src.Database import Database
 
 
 class Sensor(object):
