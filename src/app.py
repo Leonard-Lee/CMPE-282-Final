@@ -16,6 +16,11 @@ app.secret_key = "jose"
 def initialize_database():
     Database.initialize()
 
+# for static html files
+@app.route('/<string:page_name>/')
+def static_page(page_name):
+    return render_template('%s.html' % page_name)
+
 @app.route('/')
 def login_template():
     return render_template('login.html')
