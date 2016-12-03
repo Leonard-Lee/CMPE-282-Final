@@ -6,7 +6,7 @@ from flask import session
 from flask import url_for
 
 from models.user import User
-from src.Database import Database
+from src.common.Database import Database
 from src.models.sensor import Sensor
 
 app = Flask(__name__)
@@ -23,7 +23,7 @@ def login_template():
 
 @app.route('/register')
 def register_template():
-    return render_template('register.html')
+    return render_template('registration.html')
 
 
 @app.route('/sensor')

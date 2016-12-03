@@ -2,7 +2,7 @@ import uuid
 
 from flask import session
 
-from src.Database import Database
+from src.common.Database import Database
 
 
 class User(object):
