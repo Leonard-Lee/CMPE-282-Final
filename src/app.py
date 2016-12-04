@@ -43,11 +43,22 @@ def login_user():
 
     if User.check_pwd(account, pwd):
         User.login(account)
+        # redirect to the function name
+        return redirect(url_for('sensor_template'))
     else:
         session['account'] = None
+        return redirect(url_for('login_template'))
 
-    # redirect to the function name
-    return redirect(url_for('sensor_template'))
+
+# for the first page of Normal User, Sensor Provider, Cloud Provider
+def normal_usr_index():
+    return render_template('index.html')
+
+def sensor_provider_index():
+    return render_template('')
+
+def cloud_provider_index():
+    return render_template('')
 
 @app.route('/auth/register', methods=['POST'])
 def register_user():
