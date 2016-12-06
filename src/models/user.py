@@ -41,6 +41,7 @@ class User(object):
 
         if pwd == user_info['pwd']:
             session['user_id'] = user_info['user_id']
+            session['role'] = user_info['role']
             return True
         else:
             return False

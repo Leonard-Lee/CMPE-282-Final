@@ -16,14 +16,9 @@ app.secret_key = "jose"
 def initialize_database():
     Database.initialize()
 
-# for static html files
-@app.route('/<string:page_name>/')
-def static_page(page_name):
-    return render_template('%s.html' % page_name)
-
 @app.route('/')
 def login_template():
-    return render_template('login.html')
+    return render_template('landing.html')
 
 
 @app.route('/register')
@@ -31,10 +26,28 @@ def register_template():
     return render_template('registration.html')
 
 
-@app.route('/sensor')
+@app.route('/show/sensor')
 def sensor_template():
     sensors = Sensor.getAll()
     return render_template('sensorsTable.html', sensors=sensors)
+
+# for static html files
+@app.route('/<string:page_name>/')
+def static_page(page_name):
+    return render_template('%s.html' % page_name)
+
+# for the first page of Normal User, Sensor Provider, Cloud Provider
+@app.route('/user/normal')
+def normal_usr_index():
+    return render_template('index.html')
+
+@app.route('/user/sensor')
+def sensor_provider_index():
+    return render_template('sensormanagement.html')
+
+@app.route('/user/cloud')
+def cloud_provider_index():
+    return render_template('addcluster.html')
 
 @app.route('/auth/login', methods=['POST'])
 def login_user():
@@ -44,21 +57,16 @@ def login_user():
     if User.check_pwd(account, pwd):
         User.login(account)
         # redirect to the function name
-        return redirect(url_for('sensor_template'))
+        if session['role'] == '1':
+            return redirect(url_for('normal_usr_index'))
+        elif session['role'] == '2':
+            return redirect(url_for('sensor_provider_index'))
+        elif session['role'] == '3':
+            return redirect(url_for('cloud_provider_index'))
     else:
         session['account'] = None
         return redirect(url_for('login_template'))
 
-
-# for the first page of Normal User, Sensor Provider, Cloud Provider
-def normal_usr_index():
-    return render_template('index.html')
-
-def sensor_provider_index():
-    return render_template('')
-
-def cloud_provider_index():
-    return render_template('')
 
 @app.route('/auth/register', methods=['POST'])
 def register_user():

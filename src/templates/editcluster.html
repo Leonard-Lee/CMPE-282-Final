@@ -60,24 +60,6 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="/index"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-                        </li>
-                        <li>
-                            <a href="/monitor"><i class="fa fa-bar-chart-o fa-fw"></i> Monitor</a>
-                        </li>
-                        <li>
-                            <a href="/addsensor"><i class="fa fa-edit fa-fw"></i> Add Sensor</a>
-                        </li>
-                        <li>
-                            <a href="/editsensor"><i class="fa fa-wrench fa-fw"></i> Edit Sensor</a>
-                        </li>
-                        <li>
-                            <a href="/loadbalancer"><i class="fa fa-sitemap fa-fw"></i> Load Balancer</a>
-                        </li>
-                        <li>
-                            <a href="/usage"><i class="fa fa-table fa-fw"></i> Usage/billing</a>
-                        </li>
-                        <li>
                             <a href="/addcluster"><i class="fa fa-edit fa-fw"></i> Add Cluster</a>
                         </li>
                         <li>
@@ -110,7 +92,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Edit Cluster: Sample Cluster 1
+                            Edit Cluster:
                         </div>
                         <!-- /.panel-heading -->
 						<div class="panel panel-default">
@@ -123,7 +105,7 @@
                                     <form role="form">
                                         <div class="form-group">
                                             <label>Cluster Name</label>
-                                            <input class="form-control" value ="Sample Cluster 1">
+                                            <input class="form-control" value ="Temperature Cluster">
                                         </div>
                                         <div class="form-group">
                                             <label>Choose Cluster Types</label>
@@ -131,7 +113,7 @@
                                                 <option>Temperature</option>
                                                 <option>Humidity</option>
                                                 <option>Carbon Dioxide</option>
-                                                <option>Altitude</option>
+                                                <option>Noise</option>
                                             </select>
                                         </div>
                                         <button type="submit" class="btn btn-default">Update</button>
@@ -156,33 +138,23 @@
                                 </thead>
                                 <tbody>
                                     <tr class="even gradeC">
-                                        <td>Sample Cluster 1</td>
-                                        <td>Temperature</td>
-                                        <td class="center">Being Edited</td>
-                                    </tr>
-                                    <tr class="even gradeC">
-                                        <td>Sample Cluster ...</td>
+                                        <td>Temperature Cluster</td>
                                         <td>Temperature</td>
                                         <td class="center"><button type="button" class="btn btn-info btn-xs">Edit</button></td>
                                     </tr>
-                                    <tr class="odd gradeA">
-                                        <td>Sample Cluster ...</td>
+                                    <tr class="even gradeC">
+                                        <td>Humidity Cluster</td>
                                         <td>Humidity</td>
                                         <td class="center"><button type="button" class="btn btn-info btn-xs">Edit</button></td>
                                     </tr>
                                     <tr class="even gradeC">
-                                        <td>Sample Cluster ...</td>
+                                        <td>Carbon Dioxide Cluster</td>
                                         <td>Carbon Dioxide</td>
                                         <td class="center"><button type="button" class="btn btn-info btn-xs">Edit</button></td>
                                     </tr>
                                     <tr class="odd gradeA">
-                                        <td>Sample Cluster ...</td>
-                                        <td>Altitude</td>
-                                        <td class="center"><button type="button" class="btn btn-info btn-xs">Edit</button></td>
-                                    </tr>
-                                    <tr class="even gradeC">
-                                        <td>Sample Cluster ...</td>
-                                        <td>Altitude</td>
+                                        <td>Noise Cluster</td>
+                                        <td>Noise</td>
                                         <td class="center"><button type="button" class="btn btn-info btn-xs">Edit</button></td>
                                     </tr>
                                 </tbody>

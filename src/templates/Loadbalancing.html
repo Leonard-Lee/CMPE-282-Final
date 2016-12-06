@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Chart.js demo</title>
+    
+    <!-- import plugin script -->
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.js"></script>
+    
+</head>
+<body>
+<label id="servv1" style="color: #2ecc71">Server 1 : 0 </label><span> - </span>
+<label id="servv2" style="color: #3498db">Server 2 : 0</label><span> - </span>
+<label id="servv3" style="color: #95a5a6">Server 3 : 0</label><span> - </span>
+<label id="servv4" style="color: #9b59b6">Server 4 : 0</label>
+
+<!-- pie chart canvas element -->
+<canvas id="myservers"></canvas>
+
+
+
+
+
+<script>
+
+    var isodd=function(val){
+        if((val % 2) === 1){
+            return true;
+        }
+        
+            return false;
+        
+    }
+    
+    var chrt=function(value){
+
+    var serv1=0;var serv2=0;var serv3=0;var serv4=0;
+    if(value<=5){
+        serv1=value;
+        document.getElementById('servv1').innerHTML='Server 1 : ' + value;
+    }
+    if(value>5 && value<=11){
+        if(isodd(value)){
+
+            serv1=(value-1)/2;
+            serv2=(value+1)/2;
+            document.getElementById('servv1').innerHTML='Server 1 : ' + serv1;
+            document.getElementById('servv2').innerHTML='Server 2 : ' + serv2;
+        }
+        else{
+             
+            serv1=(value)/2;
+            serv2=(value)/2;
+            document.getElementById('servv1').innerHTML='Server 1 : ' + serv1;
+            document.getElementById('servv2').innerHTML='Server 2 : ' + serv2;
+        }
+        
+    }
+    if(value>11 && value<=30){
+        var v= (value % 3);
+        var value2= value - v;
+        serv1=((value2)/3)+v;
+        serv2=(value2)/3;
+        serv3=(value2)/3;
+        document.getElementById('servv1').innerHTML='Server 1 : ' + serv1;
+        document.getElementById('servv2').innerHTML='Server 2 : ' + serv2;
+        document.getElementById('servv3').innerHTML='Server 3 : ' + serv3;
+
+    }
+
+    if(value > 30){
+        var v= (value % 4);
+        var value2= value - v;
+        serv1=((value2)/4)+v;
+        serv2=(value2)/4;
+        serv3=(value2)/4;
+        serv4=(value2)/4;
+        document.getElementById('servv1').innerHTML='Server 1 : ' + serv1;
+        document.getElementById('servv2').innerHTML='Server 2 : ' + serv2;
+        document.getElementById('servv3').innerHTML='Server 3 : ' + serv3;
+        document.getElementById('servv4').innerHTML='Server 4 : ' + serv4;
+    }
+    
+    var ctx = document.getElementById("myservers").getContext('2d');
+    ctx.canvas.width  = window.innerWidth;
+    ctx.canvas.height = window.innerHeight;
+
+    
+    var myChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: [ "Server 1" , "Server 2", "Server 3", "Server 4"],
+            datasets: [{
+            backgroundColor: [
+             "#2ecc71",
+             "#3498db",
+             "#95a5a6",
+             "#9b59b6",
+              
+             ],
+            data: [serv1, serv2, serv3, serv4]
+            }]
+        },
+        options: {
+            legend: {
+                display: false
+        
+            },
+            animation: false,
+        }
+    });
+    myChart.update();
+    
+    setTimeout (function() { myChart.destroy(); chrt(value + 1); }, 5000);
+  
+    }
+    chrt(5);
+
+
+   
+</script>
+
+</body>
+</html>
