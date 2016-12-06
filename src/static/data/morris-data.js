@@ -79,25 +79,21 @@ $(function() {
     Morris.Bar({
         element: 'morris-bar-chart',
         data: [{
-            y: 'Cluster 1',
-            a: 5,
-            b: 3
+            y: 'CO2 San Jose ',
+            a: 2,
+            b: 1
         }, {
-            y: 'Cluster 2',
-            a: 8,
-            b: 8
-        }, {
-            y: 'Cluster 3',
+            y: 'Noise San Jose ',
             a: 3,
-            b: 2
+            b: 1
         }, {
-            y: 'Cluster 4',
-            a: 5,
-            b: 5
+            y: 'CO2 Santa Clara ',
+            a: 3,
+            b: 1
         }, {
-            y: 'Cluster 5',
-            a: 6,
-            b: 3
+            y: 'Noise Santa Clara ',
+            a: 2,
+            b: 1
         }],
         xkey: 'y',
         ykeys: ['a', 'b'],

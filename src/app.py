@@ -47,7 +47,7 @@ def sensor_provider_index():
 
 @app.route('/user/cloud')
 def cloud_provider_index():
-    return render_template('addcluster.html')
+    return render_template('editcluster.html')
 
 @app.route('/auth/login', methods=['POST'])
 def login_user():

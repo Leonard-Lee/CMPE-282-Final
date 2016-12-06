@@ -1195,7 +1195,7 @@ $(function() {
         series[0].data = getRandomData();
         plot.setData(series);
         plot.draw();
-    }, 100);
+    }, 2000);
 
 });
 
@@ -1296,7 +1296,7 @@ $(function() {
         series[0].data = getRandomData();
         plot.setData(series);
         plot.draw();
-    }, 100);
+    }, 2000);
 
 });
 
@@ -1397,7 +1397,7 @@ $(function() {
         series[0].data = getRandomData();
         plot.setData(series);
         plot.draw();
-    }, 100);
+    }, 2000);
 
 });
 
@@ -1498,7 +1498,7 @@ $(function() {
         series[0].data = getRandomData();
         plot.setData(series);
         plot.draw();
-    }, 100);
+    }, 2000);
 
 });
 
