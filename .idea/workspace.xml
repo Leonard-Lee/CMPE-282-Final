@@ -2,21 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1c5e6e8f-d8e6-49d1-9ed5-8ee0a172c03b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/templates/Loadbalancing.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/templates/landing.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app.py" afterPath="$PROJECT_DIR$/src/app.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/models/user.py" afterPath="$PROJECT_DIR$/src/models/user.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/addcluster.html" afterPath="$PROJECT_DIR$/src/templates/addcluster.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/addsensor.html" afterPath="$PROJECT_DIR$/src/templates/addsensor.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/editcluster.html" afterPath="$PROJECT_DIR$/src/templates/editcluster.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/editsensor.html" afterPath="$PROJECT_DIR$/src/templates/editsensor.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/index.html" afterPath="$PROJECT_DIR$/src/templates/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/loadbalancer.html" afterPath="$PROJECT_DIR$/src/templates/loadbalancer.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/monitor.html" afterPath="$PROJECT_DIR$/src/templates/monitor.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/sensormanagement.html" afterPath="$PROJECT_DIR$/src/templates/sensormanagement.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/sensorsTable.html" afterPath="$PROJECT_DIR$/src/templates/sensorsTable.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/usage.html" afterPath="$PROJECT_DIR$/src/templates/usage.html" />
     </list>
     <ignored path="terminal_blog.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -41,46 +27,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="app.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app.py">
+      <file leaf-file-name="sensorsTable.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/templates/sensorsTable.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
-              <caret line="56" column="17" selection-start-line="56" selection-start-column="17" selection-end-line="56" selection-end-column="17" />
-              <folding>
-                <element signature="e#0#23#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="user.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/models/user.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="35" column="8" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="8" />
+            <state relative-caret-position="60">
+              <caret line="3" column="27" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="27" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="monitor.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/templates/monitor.html">
+      <file leaf-file-name="editcluster.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/templates/editcluster.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1207">
-              <caret line="206" column="22" selection-start-line="159" selection-start-column="16" selection-end-line="206" selection-end-column="22" />
+            <state relative-caret-position="263">
+              <caret line="200" column="53" selection-start-line="200" selection-start-column="53" selection-end-line="200" selection-end-column="53" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sensor.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/models/sensor.py">
+      <file leaf-file-name="loadbalancer.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/templates/loadbalancer.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="8" column="16" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="16" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="250">
+              <caret line="93" column="116" selection-start-line="93" selection-start-column="114" selection-end-line="93" selection-end-column="116" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -138,9 +110,9 @@
         <option value="$PROJECT_DIR$/src/templates/loadbalancer.html" />
         <option value="$PROJECT_DIR$/src/templates/addcluster.html" />
         <option value="$PROJECT_DIR$/src/templates/addsensor.html" />
-        <option value="$PROJECT_DIR$/src/templates/editcluster.html" />
         <option value="$PROJECT_DIR$/src/templates/editsensor.html" />
         <option value="$PROJECT_DIR$/src/templates/monitor.html" />
+        <option value="$PROJECT_DIR$/src/templates/editcluster.html" />
       </list>
     </option>
   </component>
@@ -848,13 +820,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/sensorsTable.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="8" column="24" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="365">
@@ -909,25 +874,6 @@
             <element signature="n#style#0;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#style#0;n#iframe#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/loadbalancer.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="93" column="116" selection-start-line="93" selection-start-column="114" selection-end-line="93" selection-end-column="116" />
-          <folding>
-            <element signature="n#style#0;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#iframe#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/editcluster.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="156" column="44" selection-start-line="156" selection-start-column="44" selection-end-line="156" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -993,8 +939,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/templates/monitor.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1207">
+        <state relative-caret-position="3067">
           <caret line="206" column="22" selection-start-line="159" selection-start-column="16" selection-end-line="206" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/sensorsTable.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" column="27" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/editcluster.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="200" column="53" selection-start-line="200" selection-start-column="53" selection-end-line="200" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/loadbalancer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="93" column="116" selection-start-line="93" selection-start-column="114" selection-end-line="93" selection-end-column="116" />
           <folding />
         </state>
       </provider>
