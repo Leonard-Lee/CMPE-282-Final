@@ -138,22 +138,22 @@
                                     <tr class="even gradeC">
                                         <td>Temperature Cluster</td>
                                         <td>Temperature</td>
-                                        <td class="center"></td>
+                                        <td class="center"><button type="button" class="btn btn-info btn-xs">Remove</button></td>
                                     </tr>
                                     <tr class="even gradeC">
                                         <td>Humidity Cluster</td>
                                         <td>Humidity</td>
-                                        <td class="center"></td>
+                                        <td class="center"><button type="button" class="btn btn-info btn-xs">Remove</button></td>
                                     </tr>
                                     <tr class="even gradeC">
                                         <td>Carbon Dioxide Cluster</td>
                                         <td>Carbon Dioxide</td>
-                                        <td class="center"></td>
+                                        <td class="center"><button type="button" class="btn btn-info btn-xs">Remove</button></td>
                                     </tr>
                                     <tr class="odd gradeA">
                                         <td>Noise Cluster</td>
                                         <td>Noise</td>
-                                        <td class="center"></td>
+                                        <td class="center"><button type="button" class="btn btn-info btn-xs">Remove</button></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -196,19 +196,18 @@
             var name = $("#formCluster input[name=clusterName]").val();
             var type = $("#formCluster select[name=clusterType]").val();
 
-//            <tr class="even gradeC">
-//                                        <td>Temperature Cluster</td>
-//                                        <td>Temperature</td>
-//                                        <td class="center"></td>
-//                                    </tr>
             var strHTML = '<tr class="even gradeC">';
                 strHTML += '<td>'+name+'</td>';
                 strHTML += '<td class="center">'+type+'</td>';
-                strHTML += '<td></td>';
+                strHTML += '<td class="center"><button type="button" class="btn btn-info btn-xs">Remove</button></td>';
                 strHTML += '</tr>';
 
             $('#clusterTable tr:last').after(strHTML);
         })
+
+        $('#clusterTable').on('click', 'button', function(){
+            $(event.target).closest('tr').remove();
+        });
     </script>
 </body>
 

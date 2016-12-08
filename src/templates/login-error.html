@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Full Slider - Start Bootstrap Template</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="{{ url_for('static', filename='css/full-slider.css') }}" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+	<style>
+		input[type=text], select {
+    width: 34%;
+    padding: 12px 20px;
+
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+		input[type=password], select {
+    width: 34%;
+    padding: 12px 20px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.label{
+	width: 100%;
+    padding: 12px;
+	color: black;
+	font-weight: bolder;
+	font-size: large;
+	
+}
+
+.btn{
+	width: 34%;
+    padding: 12px 20px;
+	font-size: large;
+	font-weight: bold;
+	border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+	</style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/index">Mobile Sensor Cloud Infrastructure</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                   
+                    <li>
+                        <a href="/register">Register</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Full Page Image Background Carousel Header -->
+    <header id="myCarousel" class="carousel slide">
+        <!-- Indicators -->
+       
+
+        <!-- Wrapper for Slides -->
+        <div class="carousel-inner">
+            <div style="margin: 0 auto; width: 40%; height: 380px; padding-top: 200px;">
+                <form action="/auth/login" method="post" style="width: 90%; height: 370px; background-color: #f1f1f1; font-family: Arial, Helvetica, sans-serif; border: 1px solid #ccc;
+                border-radius: 4px; margin: 0 auto;">
+                    <div class="container" style="padding: 40px; width:280%;" >
+                      <label class="label" style="padding-left: 0;"><b>Enter Username:*</b></label></br>
+                      <input type="text" id="username" placeholder="Enter Username" name="account" required>
+                        </br> </br>
+                      <label class="label" style="padding-left: 0;"><b>Enter Password:*</b></label> </br>
+                      <input type="password" id="password" placeholder="Enter Password" name="password" required>
+                        </br> </br>
+                      <button class="btn" type="submit">Login</button>
+                      </br> </br>
+                      <input type="checkbox" checked="checked"> Remember me
+                      </br> </br>
+                         <a style="text-decoration: none;" href="/register">Don't have an account? Sign Up</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    <div id="sensorModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Error user name or password</h4>
+          </div>
+            <form id="fm" method="post" novalidate>
+              <div class="modal-body">
+                  <p>Please enter the correct user name and password</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </form>
+        </div>
+
+      </div>
+    </div>
+
+    </header>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>What do we provide?</h1>
+				        <p>Rapid increase in advancements related to mobile cloud computing and mobile sensors makes it possible to apply the new technologic improvements into more aspects of daily life or commercial needs. One of the areas where these improvements can be applied is mobile sensor cloud systems. With our project, we aim to create a mobile sensor cloud infrastructure for smart city transportation to support and manage mobile sensor resources and infrastructure IaaS for smart city transportation systems.</p>
+
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; 2015 Cloud Spartan</p>
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+
+    <!-- Script to Activate the Carousel -->
+    <script>
+    $(function() {
+        $('#sensorModal').modal('show');
+    });
+
+    $('.carousel').carousel({
+        interval: 5000 //changes the speed
+    })
+    </script>
+
+</body>
+
+</html>

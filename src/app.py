@@ -34,7 +34,10 @@ def sensor_template():
 # for static html files
 @app.route('/<string:page_name>/')
 def static_page(page_name):
-    return render_template('%s.html' % page_name)
+    if page_name == "usage":
+        return  render_template('%s.html' % page_name, account=session['account'])
+    else:
+        return render_template('%s.html' % page_name)
 
 # for the first page of Normal User, Sensor Provider, Cloud Provider
 @app.route('/user/normal')
@@ -65,7 +68,9 @@ def login_user():
             return redirect(url_for('cloud_provider_index'))
     else:
         session['account'] = None
-        return redirect(url_for('login_template'))
+        session['role'] = None
+        session['user_id'] = None
+        return render_template('login-error.html')
 
 
 @app.route('/auth/register', methods=['POST'])

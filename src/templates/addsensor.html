@@ -94,10 +94,10 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <form role="form">
+                                    <form id="formVirtualSensor" role="form">
                                         <div class="form-group">
                                             <label>Choose physical sensor to subscribe (virtualize)</label>
-                                            <select class="form-control">
+                                            <select name="vsensorName" class="form-control">
                                                 <option>Carbon Dioxide 1</option>
                                                 <option>Carbon Dioxide 2</option>
                                                 <option>Carbon Dioxide 3</option>
@@ -112,12 +112,14 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Choose Sensor Cluster</label>
-                                            <select class="form-control">
+                                            <select name="clusterName" class="form-control">
                                                 <option>Carbon Dioxide San Jose Cluster</option>
                                                 <option>Noise San Jose Cluster</option>
+                                                <option>Carbon Dioxide Santa Clara Cluster</option>
+                                                <option>Noise Santa Clara Cluster</option>
                                             </select>
                                         </div>
-                                        <button type="submit" class="btn btn-default">Add</button>
+                                        <button id="btnAdd" type="button" class="btn btn-default">Add</button>
                                     </form>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
@@ -136,7 +138,7 @@
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                            <table id="sensorTable" width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
                                         <th>Subscribed Sensor</th>
@@ -199,6 +201,30 @@
     <!-- Custom Theme JavaScript -->
     <script src="{{ url_for('static', filename='dist/js/sb-admin-2.js') }}"></script>
 
+    <script type="text/javascript">
+        $('#btnAdd').click(function () {
+            var vSensorName = $("#formVirtualSensor select[name=vsensorName]").val();
+            var clusterName = $("#formVirtualSensor select[name=clusterName]").val();
+
+//            <tr class="even gradeC">
+//                                        <td>Noise 2</td>
+//                                        <td>Noise Santa Clara Cluster</td>
+//
+//                                        <td class="center"><button type="button" class="btn btn-info btn-xs">Remove</button></td>
+//                                    </tr>
+            var strHTML = '<tr class="even gradeC">';
+                strHTML += '<td>'+vSensorName+'</td>';
+                strHTML += '<td>'+clusterName+'</td>';
+                strHTML += '<td class="center"><button type="button" class="btn btn-info btn-xs">Remove</button></td>';
+                strHTML += '</tr>';
+
+            $('#sensorTable tr:last').after(strHTML);
+        })
+
+        $('#sensorTable').on('click', 'button', function(){
+            $(event.target).closest('tr').remove();
+        });
+    </script>
 </body>
 
 </html>
