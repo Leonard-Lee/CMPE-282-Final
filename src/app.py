@@ -6,8 +6,8 @@ from flask import session
 from flask import url_for
 
 from models.user import User
-from src.common.Database import Database
-from src.models.sensor import Sensor
+from common.Database import Database
+from models.sensor import Sensor
 
 app = Flask(__name__)
 app.secret_key = "jose"

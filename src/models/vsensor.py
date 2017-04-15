@@ -3,8 +3,7 @@ from datetime import datetime
 
 from common.Database import Database
 
-
-class Sensor(object):
+class Vsensor(object):
 
     def __init__(self, longitude, latitude, type, status,
                  start_time=datetime.utcnow(),
