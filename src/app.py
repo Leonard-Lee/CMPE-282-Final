@@ -8,9 +8,11 @@ from flask import url_for
 from models.user import User
 from common.Database import Database
 from models.sensor import Sensor
+from common.MySQLHelper import MySQLHelper
 
 app = Flask(__name__)
 app.secret_key = "jose"
+DB = MySQLHelper()
 
 @app.before_first_request
 def initialize_database():
@@ -26,10 +28,14 @@ def register_template():
     return render_template('registration.html')
 
 
-@app.route('/show/sensor')
-def sensor_template():
-    sensors = Sensor.getAll()
-    return render_template('sensorsTable.html', sensors=sensors)
+@app.route('/show/employee')
+def employee_template():
+    employees = DB.get_all_inputs('employees')
+    return render_template('sensorsTable.html', sensors=employees)
+
+@app.route('/employee/<int:id>', methods=['DELETE'])
+def employee_deletion(id):
+    DB.clear('employees', 'employeeNumber', id)
 
 # for static html files
 @app.route('/<string:page_name>/')
@@ -64,8 +70,6 @@ def login_user():
             return redirect(url_for('normal_usr_index'))
         elif session['role'] == '2':
             return redirect(url_for('sensor_provider_index'))
-        elif session['role'] == '3':
-            return redirect(url_for('cloud_provider_index'))
     else:
         session['account'] = None
         session['role'] = None
