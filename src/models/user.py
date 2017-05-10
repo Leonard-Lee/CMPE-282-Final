@@ -1,7 +1,7 @@
 import uuid
 
 from flask import session
-from src.common.MySQLHelper import MySQLHelper
+from common.MySQLHelper import MySQLHelper
 
 
 class User(object):
