@@ -1,55 +1,69 @@
 import uuid
 
 from flask import session
-
-from common.Database import Database
+from src.common.MySQLHelper import MySQLHelper
 
 
 class User(object):
 
-    def __init__(self, first_name, last_name, account, pwd, role, cloud_id=0, user_id=None):
+    def __init__(self, first_name, last_name, username, pwd, user_role):
         self.first_name = first_name
         self.last_name = last_name
-        self.account = account
+        self.username = username
         self.pwd = pwd
-        self.role = role
-        self.cloud_id = cloud_id
-        self.user_id = uuid.uuid4().hex if user_id is None else user_id
+        self.user_role = user_role
 
     def json(self):
         return {
             'first_name': self.first_name,
             'last_name': self.last_name,
-            'account': self.account,
+            'username': self.username,
             'pwd': self.pwd,
-            'role': self.role,
-            'cloud_id': self.cloud_id,
-            'user_id': self.user_id
+            'user_role': self.user_role
         }
 
     def register(self):
-        Database.insert(collection = 'user',
-                        data = self.json())
+        db = MySQLHelper()
+        connection = db.connect()
+        try:
+            # The following introduces a deliberate security flaw.
+            # See section on SQL injection below
+            query = "INSERT INTO user (username, password, first_name, last_name, user_type)"
+            query += "VALUES('{0}', '{1}', '{2}', '{3}', '{4}');" \
+                .format(self.username, self.pwd, self.first_name, self.last_name, self.user_role)
+            with connection.cursor() as cursor:
+                cursor.execute(query)
+                connection.commit()
+        finally:
+            connection.close()
         # session['account'] = self.account
 
     @staticmethod
-    def check_pwd(account, pwd):
-        user_info = Database.find_one(collection='user',
-                                      query={'account': account})
-        if user_info is None:
-            return False
+    def check_pwd(username, pwd):
+        db = MySQLHelper()
+        connection = db.connect()
 
-        if pwd == user_info['pwd']:
-            session['user_id'] = user_info['user_id']
-            session['role'] = user_info['role']
+        try:
+            query = "SELECT `username`, `password`, `first_name`, `last_name`, `user_type` "
+            query += "FROM `user` "
+            query += "WHERE `username`=%s;"
+            with connection.cursor() as cursor:
+                cursor.execute(query, (username,))
+                userDict = cursor.fetchone()
+                print userDict
+        finally:
+            connection.close()
+
+        if userDict['password'] == pwd:
+            session['user_role'] = userDict['user_type']
             return True
         else:
             return False
 
     @staticmethod
-    def login(account):
-        session['account'] = account
+    def login(username):
+        session['username'] = username
 
     @staticmethod
     def logout():
-        session['account'] = None
+        session['username'] = None

@@ -1,13 +1,19 @@
 import pymysql.cursors
 import dbconfig
 
-class MySQLHelper:
-    def connect(self, database='classicmodels'):
+class MySQLHelper(object):
+    def __init__(self):
+        self.database = dbconfig.db_name
+        self.host = dbconfig.db_host
+        self.user = dbconfig.db_user
+        self.pwd = dbconfig.db_password
+
+    def connect(self):
         # Connect to the database
-        return pymysql.connect(host='localhost',
-                             user=dbconfig.db_user,
-                             password=dbconfig.db_password,
-                             db=database,
+        return pymysql.connect(host=self.host,
+                             user=self.user,
+                             password=self.pwd,
+                             db=self.database,
                              charset='utf8mb4',
                              cursorclass=pymysql.cursors.DictCursor)
 

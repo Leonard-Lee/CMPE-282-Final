@@ -41,18 +41,24 @@ def employee_deletion(id):
 @app.route('/<string:page_name>/')
 def static_page(page_name):
     if page_name == "usage":
-        return  render_template('%s.html' % page_name, account=session['account'])
+        return render_template('%s.html' % page_name, account=session.get('username'))
     else:
         return render_template('%s.html' % page_name)
 
 # for the first page of Normal User, Sensor Provider, Cloud Provider
 @app.route('/user/normal')
 def normal_usr_index():
-    return render_template('index.html')
+    if session.get('username'):
+        return render_template('index.html')
+    else:
+        return redirect(url_for('new_login'))
 
-@app.route('/user/sensor')
-def sensor_provider_index():
-    return render_template('sensormanagement.html')
+@app.route('/user/admin')
+def admin_index():
+    if session.get('username'):
+        return render_template('sensormanagement.html')
+    else:
+        return render_template('login-error.html')
 
 @app.route('/user/cloud')
 def cloud_provider_index():
@@ -66,31 +72,39 @@ def login_user():
     if User.check_pwd(account, pwd):
         User.login(account)
         # redirect to the function name
-        if session['role'] == '1':
+        if session.get('user_role') == '1':
             return redirect(url_for('normal_usr_index'))
-        elif session['role'] == '2':
-            return redirect(url_for('sensor_provider_index'))
+        elif session.get('user_role') == '2':
+            return redirect(url_for('admin_index'))
     else:
-        session['account'] = None
-        session['role'] = None
+        session['username'] = None
+        session['user_role'] = None
         session['user_id'] = None
         return render_template('login-error.html')
 
+@app.route('/auth/logout')
+def logout_user():
+    User.logout()
+    return redirect(url_for('new_login'))
+
+@app.route('/new/login')
+def new_login():
+    return render_template('login.html')
 
 @app.route('/auth/register', methods=['POST'])
 def register_user():
-# (cls, cursor, account, pwd, first_name, last_name, role)
+# (cls, cursor, account, pwd, first_name, last_name, user_role)
     account = request.form['account']
     pwd = request.form['password']
     first_name = request.form['first_name']
     last_name = request.form['last_name']
-    role = request.form['role']
+    user_role = request.form['role']
 
     user = User(first_name=first_name,
                 last_name=last_name,
-                account=account,
+                username=account,
                 pwd=pwd,
-                role=role)
+                user_role=user_role)
     user.register()
     return redirect(url_for('login_template'))
 
