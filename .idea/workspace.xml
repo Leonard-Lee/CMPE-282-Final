@@ -3,8 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="1c5e6e8f-d8e6-49d1-9ed5-8ee0a172c03b" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/requirements.txt" afterPath="$PROJECT_DIR$/requirements.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app.py" afterPath="$PROJECT_DIR$/src/app.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/index.html" afterPath="$PROJECT_DIR$/src/templates/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/templates/login.html" afterPath="$PROJECT_DIR$/src/templates/login.html" />
     </list>
     <ignored path="terminal_blog.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -20,7 +22,7 @@
     <SUITE FILE_PATH="coverage/terminal_blog$app.coverage" NAME="app Coverage Results" MODIFIED="1480924731529" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/terminal_blog$Unittests_in_terminal_blog.coverage" NAME="Unittests in terminal_blog Coverage Results" MODIFIED="1480212533257" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/CMPE_282_FINAL$MySQLHelper.coverage" NAME="MySQLHelper Coverage Results" MODIFIED="1493421332663" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/common" />
-    <SUITE FILE_PATH="coverage/CMPE_282_FINAL$app.coverage" NAME="app Coverage Results" MODIFIED="1494531036566" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/CMPE_282_FINAL$app.coverage" NAME="app Coverage Results" MODIFIED="1494536157247" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -34,18 +36,40 @@
       <file leaf-file-name="app.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="10" column="34" lean-forward="false" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
+            <state relative-caret-position="80">
+              <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/templates/login.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="320">
+              <caret line="125" column="26" lean-forward="false" selection-start-line="125" selection-start-column="26" selection-end-line="125" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="888">
-              <caret line="114" column="58" lean-forward="false" selection-start-line="114" selection-start-column="52" selection-end-line="114" selection-end-column="58" />
+            <state relative-caret-position="3280">
+              <caret line="164" column="19" lean-forward="false" selection-start-line="164" selection-start-column="19" selection-end-line="164" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="requirements.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/requirements.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="40">
+              <caret line="2" column="12" lean-forward="false" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -55,7 +79,7 @@
         <entry file="file://$PROJECT_DIR$/src/templates/landing.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
-              <caret line="3" column="6" lean-forward="true" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+              <caret line="3" column="6" lean-forward="false" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -85,6 +109,7 @@
       <find>src.common.MySQLHelper</find>
       <find>src.common.Database</find>
       <find>Sensor</find>
+      <find>Physical Sensors / Subscribed Sensors</find>
     </findStrings>
     <replaceStrings>
       <replace>user_role</replace>
@@ -127,7 +152,6 @@
         <option value="$PROJECT_DIR$/src/templates/sensorsTable.html" />
         <option value="$PROJECT_DIR$/src/common/dbconfig.py" />
         <option value="$PROJECT_DIR$/src/common/MySQLHelper.py" />
-        <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/src/app.wsgi" />
         <option value="$PROJECT_DIR$/src/templates/addcluster.html" />
         <option value="$PROJECT_DIR$/src/templates/addsensor.html" />
@@ -136,15 +160,16 @@
         <option value="$PROJECT_DIR$/src/templates/landing.html" />
         <option value="$PROJECT_DIR$/src/templates/loadbalancer.html" />
         <option value="$PROJECT_DIR$/src/templates/login-error.html" />
-        <option value="$PROJECT_DIR$/src/templates/login.html" />
         <option value="$PROJECT_DIR$/src/templates/monitor.html" />
         <option value="$PROJECT_DIR$/src/templates/registration.html" />
         <option value="$PROJECT_DIR$/src/templates/sensormanagement.html" />
         <option value="$PROJECT_DIR$/src/templates/usage.html" />
         <option value="$PROJECT_DIR$/src/models/user.py" />
         <option value="$PROJECT_DIR$/src/models/sensor.py" />
-        <option value="$PROJECT_DIR$/src/app.py" />
         <option value="$PROJECT_DIR$/src/templates/index.html" />
+        <option value="$PROJECT_DIR$/requirements.txt" />
+        <option value="$PROJECT_DIR$/src/app.py" />
+        <option value="$PROJECT_DIR$/src/templates/login.html" />
       </list>
     </option>
   </component>
@@ -156,9 +181,8 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="2" />
-    <option name="y" value="12" />
     <option name="width" value="1276" />
-    <option name="height" value="777" />
+    <option name="height" value="800" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -175,10 +199,23 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CMPE_282_FINAL" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="&lt; Python 2.7.10 virtualenv at ~/venv &gt;" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="CMPE_282_FINAL" />
@@ -277,6 +314,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -629,10 +667,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="2" y="12" width="1276" height="777" extended-state="0" />
-    <editor active="true" />
+    <frame x="2" y="0" width="1276" height="800" extended-state="6" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21312805" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21961102" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22919708" sideWeight="0.5032415" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -642,7 +680,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956153" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16973126" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25068492" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -920,13 +958,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/templates/addcluster.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -963,13 +994,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/templates/login-error.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="79" column="54" lean-forward="false" selection-start-line="79" selection-start-column="54" selection-end-line="79" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/templates/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
           <caret line="79" column="54" lean-forward="false" selection-start-line="79" selection-start-column="54" selection-end-line="79" selection-end-column="54" />
@@ -1029,12 +1053,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="14" lean-forward="false" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="14" />
-          <folding>
-            <marker date="1494360768000" expanded="true" signature="713:728" ph="SELECT * FRO... " />
-            <marker date="1494360768000" expanded="true" signature="713:737" ph="SELECT * FRO... %s" />
-            <marker date="1494360768000" expanded="true" signature="1160:1179" ph="INSERT INTO crimes... " />
-            <marker date="1494360768000" expanded="true" signature="1957:1982" ph="DELETE FROM " />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1053,26 +1072,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="10" column="34" lean-forward="false" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/templates/landing.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
-          <caret line="3" column="6" lean-forward="true" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+          <caret line="3" column="6" lean-forward="false" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="888">
-          <caret line="114" column="58" lean-forward="false" selection-start-line="114" selection-start-column="52" selection-end-line="114" selection-end-column="58" />
+        <state relative-caret-position="3280">
+          <caret line="164" column="19" lean-forward="false" selection-start-line="164" selection-start-column="19" selection-end-line="164" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="12" lean-forward="false" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="125" column="26" lean-forward="false" selection-start-line="125" selection-start-column="26" selection-end-line="125" selection-end-column="26" />
           <folding />
         </state>
       </provider>

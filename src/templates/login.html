@@ -23,6 +23,18 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script src="https://cdn.auth0.com/js/lock/10.15/lock.min.js"></script>
+    <script>
+      var lock = new Auth0Lock('yb6JTceGfmg9RcZsp21YmyWH9ghS1HnJ', 'divyankitha.auth0.com', {
+        auth: {
+          redirectUrl: 'http://ec2-54-191-183-113.us-west-2.compute.amazonaws.com/callback',
+          responseType: 'code',
+          params: {
+            scope: 'openid email' // Learn about scopes: https://auth0.com/docs/scopes
+          }
+        }
+      });
+    </script>
 	<style>
 		input[type=text], select {
     width: 34%;
@@ -110,8 +122,10 @@
       <label class="label" style="padding-left: 0;"><b>Enter Password:*</b></label> </br> 
       <input type="password" id="password" placeholder="Enter Password" name="password" required>
         </br> </br> 
-      <button class="btn" type="submit">Login</button>
-	  </br> </br>
+      <!--<button class="btn" type="submit">Login</button>-->
+	  <button class="btn" type="submit" onclick="lock.show();">Login</button>
+
+        </br> </br>
       <input type="checkbox" checked="checked"> Remember me
 	  </br> </br>
 		 <a style="text-decoration: none;" href="/register">Don't have an account? Sign Up</a>

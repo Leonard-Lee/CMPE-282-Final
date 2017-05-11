@@ -1,3 +1,6 @@
+import os
+import json
+
 from flask import Flask
 from flask import redirect
 from flask import render_template
@@ -9,6 +12,11 @@ from models.user import User
 from common.Database import Database
 # from models.sensor import Sensor
 from common.MySQLHelper import MySQLHelper
+
+from flask import send_from_directory
+from auth0.v3.authentication import GetToken
+from auth0.v3.authentication import Users
+# from dotenv import load_dotenv
 
 app = Flask(__name__)
 app.secret_key = "jose"
@@ -64,6 +72,21 @@ def admin_index():
 def cloud_provider_index():
     return render_template('editcluster.html')
 
+# Auth0 login
+# Here we're using the /callback route.
+@app.route('/callback')
+def callback_handling():
+    code = request.args.get('code')
+    get_token = GetToken('divyankitha.auth0.com')
+    auth0_users = Users('divyankitha.auth0.com')
+    token = get_token.authorization_code('yb6JTceGfmg9RcZsp21YmyWH9ghS1HnJ',
+                                         'bV3_GiaNJsXE1AI7V8tOigufb6ig6YWJ0-HWnWuyMV2bn7EcHxfHvw7uP7uG0HtW', code,
+                                         'http://ec2-54-191-183-113.us-west-2.compute.amazonaws.com/callback')
+    user_info = auth0_users.userinfo(token['access_token'])
+    session['profile'] = json.loads(user_info)
+    return redirect(url_for('normal_usr_index'))
+
+# original login
 @app.route('/auth/login', methods=['POST'])
 def login_user():
     account = request.form['account']
