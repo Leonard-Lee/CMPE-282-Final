@@ -93,7 +93,7 @@ def callback_handling():
                                              'http://ec2-54-191-183-113.us-west-2.compute.amazonaws.com/callback')
         user_info = auth0_users.userinfo(token['access_token'])
         session['profile'] = json.loads(user_info)
-        return redirect(url_for('normal_usr_index'))
+        # return redirect(url_for('normal_usr_index'))
         return redirect('https://www.google.com/')
 
     except jwt.ExpiredSignatureError:
