@@ -91,8 +91,8 @@ def callback_handling():
         token = get_token.authorization_code('yb6JTceGfmg9RcZsp21YmyWH9ghS1HnJ',
                                              'bV3_GiaNJsXE1AI7V8tOigufb6ig6YWJ0-HWnWuyMV2bn7EcHxfHvw7uP7uG0HtW', code,
                                              'http://ec2-54-191-183-113.us-west-2.compute.amazonaws.com/callback')
-        user_info = auth0_users.userinfo(token['access_token'])
-        session['profile'] = json.loads(user_info)
+        # user_info = auth0_users.userinfo(token['access_token'])
+        # session['profile'] = json.loads(user_info)
         return request('http://ec2-54-191-183-113.us-west-2.compute.amazonaws.com/register')
         # return redirect(url_for('normal_usr_index'))
         # return redirect('https://www.google.com/')
