@@ -7,6 +7,7 @@ from flask import render_template
 from flask import request
 from flask import session
 from flask import url_for
+from flask import jsonify
 
 from models.user import User
 from common.Database import Database
@@ -20,6 +21,7 @@ from auth0.v3.authentication import Users
 
 import logging
 from logging.handlers import RotatingFileHandler
+from jose import jwt
 
 app = Flask(__name__)
 app.secret_key = "jose"
@@ -75,23 +77,38 @@ def admin_index():
 def cloud_provider_index():
     return render_template('editcluster.html')
 
+# handle error
+def handle_error(error, status_code):
+    resp = jsonify(error)
+    resp.status_code = status_code
+    return resp
+
 # Auth0 login
 # Here we're using the /callback route.
 @app.route('/callback')
 def callback_handling():
-    code = request.args.get('code')
-    get_token = GetToken('divyankitha.auth0.com')
-    auth0_users = Users('divyankitha.auth0.com')
-    token = get_token.authorization_code('yb6JTceGfmg9RcZsp21YmyWH9ghS1HnJ',
-                                         'bV3_GiaNJsXE1AI7V8tOigufb6ig6YWJ0-HWnWuyMV2bn7EcHxfHvw7uP7uG0HtW', code,
-                                         'http://ec2-54-191-183-113.us-west-2.compute.amazonaws.com/callback')
-    user_info = auth0_users.userinfo(token['access_token'])
-    # token = get_token.authorization_code('oedNooDB8Av9izc9r-5_a77SoFPw3UHN',
-    #                                      'pkrQ_JkzGb_qYrXOvPMfC01v3NrJyZOklSZS2kzfezMxWUNMGLnEh64TgMUrBeV-', code,
-    #                                      'http://ec2-54-191-183-113.us-west-2.compute.amazonaws.com/callback')
-    user_info = auth0_users.userinfo(token['access_token'])
-    session['profile'] = json.loads(user_info)
-    return redirect(url_for('normal_usr_index'))
+    try:
+        code = request.args.get('code')
+        get_token = GetToken('divyankitha.auth0.com')
+        auth0_users = Users('divyankitha.auth0.com')
+        token = get_token.authorization_code('yb6JTceGfmg9RcZsp21YmyWH9ghS1HnJ',
+                                             'bV3_GiaNJsXE1AI7V8tOigufb6ig6YWJ0-HWnWuyMV2bn7EcHxfHvw7uP7uG0HtW', code,
+                                             'http://ec2-54-191-183-113.us-west-2.compute.amazonaws.com/callback')
+        user_info = auth0_users.userinfo(token['access_token'])
+        session['profile'] = json.loads(user_info)
+        return redirect(url_for('normal_usr_index'))
+
+    except jwt.ExpiredSignatureError:
+        return handle_error({"code": "token_expired",
+                             "description": "token is expired"}, 401)
+    except jwt.JWTClaimsError:
+        return handle_error({"code": "invalid_claims",
+                             "description": "incorrect claims,"
+                                            "please check the audience and issuer"}, 401)
+    except Exception:
+        return handle_error({"code": "invalid_header",
+                             "description": "Unable to parse authentication"
+                                            "token."}, 400)
 
 # original login
 @app.route('/auth/login', methods=['POST'])
