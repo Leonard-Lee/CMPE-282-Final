@@ -73,9 +73,6 @@ def admin_index():
     else:
         return render_template('login-error.html')
 
-@app.route('/user/cloud')
-def cloud_provider_index():
-    return render_template('editcluster.html')
 
 # handle error
 def handle_error(error, status_code):
@@ -97,6 +94,7 @@ def callback_handling():
         user_info = auth0_users.userinfo(token['access_token'])
         session['profile'] = json.loads(user_info)
         return redirect(url_for('normal_usr_index'))
+        return redirect('https://www.google.com/')
 
     except jwt.ExpiredSignatureError:
         return handle_error({"code": "token_expired",
