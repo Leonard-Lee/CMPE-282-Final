@@ -7,7 +7,7 @@ from flask import url_for
 
 from models.user import User
 from common.Database import Database
-from models.sensor import Sensor
+# from models.sensor import Sensor
 from common.MySQLHelper import MySQLHelper
 
 app = Flask(__name__)
