@@ -138,7 +138,7 @@ def login_user():
 def logout_user():
     User.logout()
     session.clear()
-    return redirect("https://divyankitha.auth0.com/v2/logout?returnTo=http%3A%2F%2F127.0.0.1:5002")
+    return redirect("https://divyankitha.auth0.com/v2/logout?returnTo=http%3A%2F%2F54.191.183.113")
 
 @app.route('/new/login')
 def new_login():
