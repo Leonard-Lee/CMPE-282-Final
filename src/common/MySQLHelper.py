@@ -21,7 +21,13 @@ class MySQLHelper(object):
         connection = self.connect()
 
         try:
-            query = "SELECT * FROM `employee`;"
+            query = "SELECT employees.*,dept_emp.dept_no,dept_manager.emp_no as MANAGER_EMPNO,emp.first_name as Manager_Firstname,emp.last_name AS Manager_lastName " \
+                    "FROM employees INNER JOIN dept_emp " \
+                    "ON employees.emp_no = dept_emp.emp_no " \
+                    "INNER JOIN dept_manager " \
+                    "ON dept_manager.dept_no = dept_emp.dept_no " \
+                    "INNER JOIN employees emp " \
+                    "ON dept_manager.emp_no = emp.emp_no;"
             with connection.cursor() as cursor:
                 cursor.execute(query)
                 return cursor.fetchall()
