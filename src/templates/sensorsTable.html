@@ -83,7 +83,7 @@
                     </div>
               </div>
               <div class="modal-footer">
-                <input id="btnUpdate" type="button" value="SUBMIT" class="btn btn-warning btn-lg" style="width: 100%;"/>
+                <input id="btnUpdate" type="button" value="Close" class="btn btn-warning btn-lg" style="width: 100%;"/>
               </div>
             </form>
         </div>
@@ -135,8 +135,8 @@
                 // edit the sensor
                 $("#fm input[name=dept_no]").val(employeeData.deptid);
                 $("#fm input[name=MANAGER_EMPNO]").val(employeeData.managerid);
-                $("#fm input[name=Manager_Firstname]").val(employeeData.firstname);
-                $("#fm input[name=Manager_lastName]").val(employeeData.lastname);
+                $("#fm input[name=Manager_Firstname]").val(employeeData.managerfirstname);
+                $("#fm input[name=Manager_lastName]").val(employeeData.managerlastname);
             }
         });
         $('#btnUpdate').click(function () {
