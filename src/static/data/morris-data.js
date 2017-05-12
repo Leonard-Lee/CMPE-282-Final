@@ -79,21 +79,21 @@ $(function() {
     Morris.Bar({
         element: 'morris-bar-chart',
         data: [{
-            y: 'CO2 San Jose ',
-            a: 2,
-            b: 1
+            y: 'San Jose 1',
+            a: 20,
+            b: 10
         }, {
-            y: 'Noise San Jose ',
-            a: 3,
-            b: 1
+            y: 'San Jose 2',
+            a: 30,
+            b: 15
         }, {
-            y: 'CO2 Santa Clara ',
-            a: 3,
-            b: 1
+            y: 'Santa Clara 1',
+            a: 63,
+            b: 12
         }, {
-            y: 'Noise Santa Clara ',
-            a: 2,
-            b: 1
+            y: 'Santa Clara 2',
+            a: 25,
+            b: 18
         }],
         xkey: 'y',
         ykeys: ['a', 'b'],
