@@ -4,20 +4,29 @@
     <table id="sensorTable" class="table table-bordered table-hover">
       <thead>
         <tr>
-            <th>#</th>
-            <th>Last Name</th>
-            <th>First Name</th>
-            <th>Gender</th>
-            <th>Hire Date</th>
-            <th>Details</th>
+            <th width="10%">#</th>
+            <th width="10%">Last Name</th>
+            <th width="10%">First Name</th>
+            <th width="5%">Gender</th>
+            <th width="10%">Hire Date</th>
+            <th width="10%">Details</th>
             <th>Delete</th>
         </tr>
       </thead>
       <tbody>
         {% for employee in employees %}
-            <tr data-id="{{employee.employeeNumber}}" data-longitude="{{employee.lastName}}" data-latitude="{{employee.firstName}}" data-type="{{employee.email}}" data-status="{{employee.jobTitle}}">
+            <tr data-id="{{employee.emp_no}}"
+                data-lastName="{{employee.last_name}}"
+                data-firstName="{{employee.first_name}}"
+                data-gender="{{employee.gender}}"
+                data-hireDate="{{employee.hire_date}}"
+                data-deptID="{{employee.dept_no}}"
+                data-managerID="{{employee.MANAGER_EMPNO}}"
+                data-managerFirstName="{{employee.Manager_Firstname}}"
+                data-managerLastName="{{employee.Manager_lastName}}">
+
                 <th scope="row">{{employee.emp_no}}</th>
-                <td>{{employee.last_name}}</td>
+                <td class="span2">{{employee.last_name}}</td>
                 <td>{{employee.first_name}}</td>
                 <td>{{employee.gender}}</td>
                 <td>{{employee.hire_date}}</td>
@@ -72,7 +81,6 @@
                         <label>Manager's Last Name: </label>
                         <input name="Manager_lastName">
                     </div>
-
               </div>
               <div class="modal-footer">
                 <input id="btnUpdate" type="button" value="SUBMIT" class="btn btn-warning btn-lg" style="width: 100%;"/>
@@ -112,25 +120,23 @@
         });
         var trSensor = null;
         $('#sensorModal').on('show.bs.modal', function(){
-            trSensor = $(event.target).closest('tr');
-            sensorData = trSensor.data();
+            trEmployee = $(event.target).closest('tr');
+            employeeData = trEmployee.data();
             //make your ajax call populate items or what even you need
-            if(typeof sensorData == 'undefined') {
+            if(typeof employeeData == 'undefined') {
                 // insert a new sensor
                 console.log('create');
-                $("#fm input[name=id]").val("");
-                $("#fm input[name=longitude]").val("");
-                $("#fm input[name=latitude]").val("");
-                $("#fm input[name=type]").val("");
-                $("#fm input[name=status]").val("");
+                $("#fm input[name=dept_no]").val("");
+                $("#fm input[name=MANAGER_EMPNO]").val("");
+                $("#fm input[name=Manager_Firstname]").val("");
+                $("#fm input[name=Manager_lastName]").val("");
             }
             else {
                 // edit the sensor
-                $("#fm input[name=id]").val(sensorData.id);
-                $("#fm input[name=longitude]").val(sensorData.longitude);
-                $("#fm input[name=latitude]").val(sensorData.latitude);
-                $("#fm input[name=type]").val(sensorData.type);
-                $("#fm input[name=status]").val(sensorData.status);
+                $("#fm input[name=dept_no]").val(employeeData.deptid);
+                $("#fm input[name=MANAGER_EMPNO]").val(employeeData.managerid);
+                $("#fm input[name=Manager_Firstname]").val(employeeData.firstname);
+                $("#fm input[name=Manager_lastName]").val(employeeData.lastname);
             }
         });
         $('#btnUpdate').click(function () {
