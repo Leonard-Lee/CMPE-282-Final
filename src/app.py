@@ -90,13 +90,13 @@ def handle_error(error, status_code):
 def callback_handling():
     try:
         code = request.args.get('code')
-        app.logger.info('code: %s', code)
+        app.logger.error('code: %s', code)
         get_token = GetToken('divyankitha.auth0.com')
         auth0_users = Users('divyankitha.auth0.com')
         token = get_token.authorization_code('yb6JTceGfmg9RcZsp21YmyWH9ghS1HnJ',
                                              'bV3_GiaNJsXE1AI7V8tOigufb6ig6YWJ0-HWnWuyMV2bn7EcHxfHvw7uP7uG0HtW', code,
                                              'http://54.191.183.113/callback')
-        app.logger.info('access_token: %s', token['access_token'])
+        app.logger.error('access_token: %s', token['access_token'])
         user_info = auth0_users.userinfo(token['access_token'])
         session['profile'] = json.loads(user_info)
         # return request('http://ec2-54-191-183-113.us-west-2.compute.amazonaws.com/register')
