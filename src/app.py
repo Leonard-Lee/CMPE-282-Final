@@ -61,10 +61,10 @@ def static_page(page_name):
 # for the first page of Normal User, Sensor Provider, Cloud Provider
 @app.route('/user/normal')
 def normal_usr_index():
-    if session.get('username'):
-        return render_template('index.html')
-    else:
-        return redirect(url_for('new_login'))
+    # if session.get('username'):
+    return render_template('index.html')
+    # else:
+    # return redirect(url_for('new_login'))
 
 @app.route('/user/admin')
 def admin_index():
@@ -88,13 +88,13 @@ def callback_handling():
         code = request.args.get('code')
         get_token = GetToken('divyankitha.auth0.com')
         auth0_users = Users('divyankitha.auth0.com')
-        # token = get_token.authorization_code('yb6JTceGfmg9RcZsp21YmyWH9ghS1HnJ',
-        #                                      'bV3_GiaNJsXE1AI7V8tOigufb6ig6YWJ0-HWnWuyMV2bn7EcHxfHvw7uP7uG0HtW', code,
-        #                                      'http://ec2-54-191-183-113.us-west-2.compute.amazonaws.com/callback')
-        # user_info = auth0_users.userinfo(token['access_token'])
-        # session['profile'] = json.loads(user_info)
-        return request('http://ec2-54-191-183-113.us-west-2.compute.amazonaws.com/register')
-        # return redirect(url_for('normal_usr_index'))
+        token = get_token.authorization_code('yb6JTceGfmg9RcZsp21YmyWH9ghS1HnJ',
+                                             'bV3_GiaNJsXE1AI7V8tOigufb6ig6YWJ0-HWnWuyMV2bn7EcHxfHvw7uP7uG0HtW', code,
+                                             'http://127.0.0.1:5002/callback')
+        user_info = auth0_users.userinfo(token['access_token'])
+        session['profile'] = json.loads(user_info)
+        # return request('http://ec2-54-191-183-113.us-west-2.compute.amazonaws.com/register')
+        return redirect(url_for('normal_usr_index'))
         # return redirect('https://www.google.com/')
 
     except jwt.ExpiredSignatureError:
