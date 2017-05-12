@@ -22,6 +22,7 @@ from auth0.v3.authentication import Users
 import logging
 from logging.handlers import RotatingFileHandler
 from jose import jwt
+from functools import wraps
 
 app = Flask(__name__)
 app.secret_key = "jose"
@@ -30,6 +31,16 @@ DB = MySQLHelper()
 @app.before_first_request
 def initialize_database():
     Database.initialize()
+
+def requires_auth(f):
+  @wraps(f)
+  def decorated(*args, **kwargs):
+    if 'profile' not in session:
+      # Redirect to Login page here
+      return redirect('/')
+    return f(*args, **kwargs)
+
+  return decorated
 
 @app.route('/')
 def login_template():
@@ -60,6 +71,7 @@ def static_page(page_name):
 
 # for the first page of Normal User, Sensor Provider, Cloud Provider
 @app.route('/user/normal')
+@requires_auth
 def normal_usr_index():
     # if session.get('username'):
     return render_template('index.html')
@@ -83,6 +95,7 @@ def handle_error(error, status_code):
 # Auth0 login
 # Here we're using the /callback route.
 @app.route('/callback')
+@requires_auth
 def callback_handling():
     try:
         code = request.args.get('code')
@@ -131,7 +144,8 @@ def login_user():
 @app.route('/auth/logout')
 def logout_user():
     User.logout()
-    return redirect(url_for('new_login'))
+    session.clear()
+    return redirect("https://divyankitha.auth0.com/v2/logout?returnTo=http%3A%2F%2F127.0.0.1:5002")
 
 @app.route('/new/login')
 def new_login():
@@ -153,7 +167,6 @@ def register_user():
                 user_role=user_role)
     user.register()
     return redirect(url_for('login_template'))
-
 
 if __name__ == "__main__":
     # initialize the log handler
