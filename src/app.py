@@ -54,20 +54,12 @@ def register_template():
 
 @app.route('/show/employee')
 def employee_template():
-    employees = DB.get_all_inputs('employees')
-    return render_template('sensorsTable.html', sensors=employees)
+    employees = DB.get_all_employees()
+    return render_template('sensorsTable.html', employees=employees)
 
 @app.route('/employee/<int:id>', methods=['DELETE'])
 def employee_deletion(id):
     DB.clear('employees', 'employeeNumber', id)
-
-# for static html files
-@app.route('/<string:page_name>/')
-def static_page(page_name):
-    if page_name == "usage":
-        return render_template('%s.html' % page_name, account=session.get('username'))
-    else:
-        return render_template('%s.html' % page_name)
 
 # for the first page of Normal User, Sensor Provider, Cloud Provider
 @app.route('/user/normal')
@@ -166,6 +158,14 @@ def register_user():
                 user_role=user_role)
     user.register()
     return redirect(url_for('login_template'))
+
+# for static html files
+@app.route('/<string:page_name>/')
+def static_page(page_name):
+    if page_name == "usage":
+        return render_template('%s.html' % page_name, account=session.get('username'))
+    else:
+        return render_template('%s.html' % page_name)
 
 if __name__ == "__main__":
     # initialize the log handler
