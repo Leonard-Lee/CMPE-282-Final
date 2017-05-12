@@ -95,7 +95,6 @@ def handle_error(error, status_code):
 # Auth0 login
 # Here we're using the /callback route.
 @app.route('/callback')
-@requires_auth
 def callback_handling():
     try:
         code = request.args.get('code')
