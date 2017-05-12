@@ -53,9 +53,17 @@ def register_template():
 
 
 @app.route('/show/employee')
+@requires_auth
 def employee_template():
     employees = DB.get_all_employees()
     return render_template('sensorsTable.html', employees=employees)
+
+@app.route('/show/team')
+@requires_auth
+def team_template():
+    first_name = session['profile']['given_name']
+    employees = DB.get_my_team(first_name)
+    return render_template('teamTable.html', employees=employees)
 
 @app.route('/employee/<int:id>', methods=['DELETE'])
 def employee_deletion(id):
