@@ -34,6 +34,23 @@ class MySQLHelper(object):
         finally:
             connection.close()
 
+    def get_my_team(self, first_name):
+        connection = self.connect()
+
+        try:
+            query = "SELECT * FROM employees WHERE emp_no IN ( SELECT emp_no FROM dept_emp WHERE dept_no IN (SELECT  dept_no FROM dept_emp WHERE emp_no in (SELECT emp_no FROM employees WHERE first_name = 'divyankitha')));"
+
+            with connection.cursor() as cursor:
+                # cursor.execute(query, first_name)
+                cursor.execute(query)
+                return cursor.fetchall()
+        except pymysql.InternalError as e:
+            print('Got error {!r}, errno is {}'.format(e, e.args[0]))
+        except pymysql.OperationalError as e:
+            print('Got error {!r}, errno is {}'.format(e, e.args[0]))
+        finally:
+            connection.close()
+
     def add_input(self, tableName, columnNames, values):
         connection = self.connect()
 
