@@ -38,11 +38,11 @@ class MySQLHelper(object):
         connection = self.connect()
 
         try:
-            query = "SELECT * FROM employees WHERE emp_no IN ( SELECT emp_no FROM dept_emp WHERE dept_no IN (SELECT  dept_no FROM dept_emp WHERE emp_no in (SELECT emp_no FROM employees WHERE first_name = 'divyankitha')));"
+            query = "SELECT * FROM employees WHERE emp_no IN ( SELECT emp_no FROM dept_emp WHERE dept_no IN (SELECT  dept_no FROM dept_emp WHERE emp_no in (SELECT emp_no FROM employees WHERE first_name = %s)));"
 
             with connection.cursor() as cursor:
                 # cursor.execute(query, first_name)
-                cursor.execute(query)
+                cursor.execute(query, (first_name,))
                 return cursor.fetchall()
         except pymysql.InternalError as e:
             print('Got error {!r}, errno is {}'.format(e, e.args[0]))
